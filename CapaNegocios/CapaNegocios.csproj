@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FacturaDAO.cs" />
     <Compile Include="LoginDAO.cs" />
     <Compile Include="N_Factura.cs" />
     <Compile Include="N_Login.cs" />

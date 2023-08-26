@@ -31,24 +31,24 @@ namespace CapaPresentacion
         P_Factura factura = new P_Factura();
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
-           if (factura.verificarfac(factura.numerofactura) == true)
-            {
+           //if (factura.verificarfac(factura.numerofactura) == true)
+           // {
 
-            }else if (factura.verificarfac(factura.numerofactura) == false)
-            {
-                DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea guardar esta factura??", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resultado == DialogResult.No)
-                {
-                    factura.eliminarfac(factura.numerofactura);
+           // }else if (factura.verificarfac(factura.numerofactura) == false)
+           // {
+           //     DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea guardar esta factura??", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+           //     if (resultado == DialogResult.No)
+           //     {
+           //         factura.eliminarfac();
 
-                }
-                else if (resultado == DialogResult.Yes)
-                {
-                    factura.facturaguardada(factura.numerofactura);
+           //     }
+           //     else if (resultado == DialogResult.Yes)
+           //     {
+           //         factura.facturaguardada(factura.numerofactura);
 
-                }
+           //     }
 
-            }
+           // }
         }
 
         private void MainView_Load(object sender, EventArgs e)

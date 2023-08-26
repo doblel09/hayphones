@@ -18,19 +18,17 @@ namespace CapaPresentacion
         public P_Factura()
         {
             InitializeComponent();
+            
 
         }
-        public N_Factura facturar = new N_Factura(new D_Factura());
-       
+        private D_Factura facturar = new D_Factura();
+
         public int numerofactura { get; set; }
 
-        public bool verificarfac(int numfac)
-        {
-            return facturar.VerificarFactura(numfac);
-        }
+        
         public void ActualizarDetalle(int idfac)
         {
-            dataGridView1.DataSource = facturar.MostrarDetalleFactura(idfac);
+            dataGridView1.DataSource = facturar.DetalleFactura(idfac);
             dataGridView1.Columns[0].Visible = false;
             dataGridView1.Columns[1].Visible = false;
         }
@@ -42,24 +40,26 @@ namespace CapaPresentacion
         public bool guardarfactura;
         public void determinarfactura()
         {
-            numerofactura = facturar.ObtenerFactura();
+          
             numFacturaBox.Text = Convert.ToString(numerofactura);
             ActualizarDetalle(numerofactura);
             ActualizarInventario();
 
         }
-        public void eliminarfac(int idfac)
+        public void eliminarfac()
         {
-            facturar.EliminarFactura(idfac);
+            
         }
         public void facturaguardada(int idfac)
         {
-            facturar.FacturaGuardada(idfac);
+            //facturar.FacturaGuardada(idfac);
         }
         private void P_Factura_Load(object sender, EventArgs e)
         {
+            facturar.IniciarTransaccion();
             determinarfactura();
             fechaLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            ActualizarInventario();
             
         }
 
@@ -71,14 +71,14 @@ namespace CapaPresentacion
         private void addFP_Click(object sender, EventArgs e)
         {
             guardarfactura = false;
-            facturar.CrearFactura(numerofactura, DatosUsuario.IdUsuario);
+            facturar.crearFactura(numerofactura, DatosUsuario.IdUsuario);
             int agregar = facturar.AgregarProducto(numerofactura, Convert.ToInt32(inventarioGridView.CurrentRow.Cells[0].Value), Convert.ToInt32(cantidadFP.Value));
             if (agregar > 0)
             {
                 MessageBox.Show("Producto Agregado.");
                 ActualizarDetalle(numerofactura);
                 ActualizarInventario();
-                totalPF.Text = Convert.ToString(facturar.TotalMaster(numerofactura))+"$";
+                //totalPF.Text = Convert.ToString(facturar.TotalMaster(numerofactura)) + "$";
             }
             else
             {
@@ -95,7 +95,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Registro Eliminado.");
                 ActualizarDetalle(numerofactura);
                 ActualizarInventario();
-                totalPF.Text = Convert.ToString(facturar.TotalMaster(numerofactura)) + "$";
+                //totalPF.Text = Convert.ToString(facturar.TotalMaster(numerofactura)) + "$";
             }
             else
             {
@@ -108,7 +108,7 @@ namespace CapaPresentacion
         {
             try
             {
-                inventarioGridView.DataSource = facturar.Buscar(comboBox1.Text, textBox1.Text);
+                //inventarioGridView.DataSource = facturar.Buscar(comboBox1.Text, textBox1.Text);
             }
             catch (Exception ex)
             {
@@ -120,7 +120,7 @@ namespace CapaPresentacion
 
         public void EliminarFactura()
         {
-            facturar.EliminarFactura(numerofactura);
+            facturar.EliminarFactura();
             ActualizarInventario();
             ActualizarDetalle(numerofactura);
             MessageBox.Show("Factura eliminada");
@@ -169,8 +169,8 @@ namespace CapaPresentacion
                 {
                     comment = clienteFP.Text;
                 }
-                facturar.Guardar(numerofactura, nombrecliente, comment);
-
+                facturar.GuardarFactura(numerofactura, nombrecliente, comment);
+                facturar.CerrarConexion();
 
                 MessageBox.Show("Factura almacenada.");
                 determinarfactura();
