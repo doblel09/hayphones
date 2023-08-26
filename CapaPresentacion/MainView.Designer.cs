@@ -31,13 +31,13 @@ namespace CapaPresentacion
         private void InitializeComponent()
         {
             this.menu = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ventaShow = new System.Windows.Forms.Button();
             this.inventarioShow = new System.Windows.Forms.Button();
             this.Niveldeacceso = new System.Windows.Forms.Label();
             this.NombreUsuario = new System.Windows.Forms.Label();
             this.p_Inventario1 = new CapaPresentacion.P_Inventario();
             this.p_Factura1 = new CapaPresentacion.P_Factura();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -52,6 +52,16 @@ namespace CapaPresentacion
             this.menu.Name = "menu";
             this.menu.Size = new System.Drawing.Size(291, 500);
             this.menu.TabIndex = 3;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.WhatsApp_Image_2023_02_22_at_10_47_53_PM;
+            this.pictureBox1.Location = new System.Drawing.Point(26, 209);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(251, 243);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
             // 
             // ventaShow
             // 
@@ -114,20 +124,9 @@ namespace CapaPresentacion
             this.p_Factura1.BackColor = System.Drawing.Color.Black;
             this.p_Factura1.Location = new System.Drawing.Point(298, 89);
             this.p_Factura1.Name = "p_Factura1";
-            this.p_Factura1.numerofactura = 7;
             this.p_Factura1.Size = new System.Drawing.Size(1075, 500);
             this.p_Factura1.TabIndex = 2;
             this.p_Factura1.Load += new System.EventHandler(this.p_Factura1_Load_1);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CapaPresentacion.Properties.Resources.WhatsApp_Image_2023_02_22_at_10_47_53_PM;
-            this.pictureBox1.Location = new System.Drawing.Point(26, 209);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(251, 243);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 7;
-            this.pictureBox1.TabStop = false;
             // 
             // MainView
             // 

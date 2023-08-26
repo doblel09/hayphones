@@ -24,6 +24,8 @@ namespace CapaPresentacion
         public string username { get; set; }
         public string acclvl { get; set; }
 
+        private D_Factura facturar = new D_Factura();
+
         private void p_Factura1_Load(object sender, EventArgs e)
         {
 
@@ -31,24 +33,13 @@ namespace CapaPresentacion
         P_Factura factura = new P_Factura();
         private void MainView_FormClosing(object sender, FormClosingEventArgs e)
         {
-           //if (factura.verificarfac(factura.numerofactura) == true)
-           // {
-
-           // }else if (factura.verificarfac(factura.numerofactura) == false)
-           // {
-           //     DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea guardar esta factura??", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-           //     if (resultado == DialogResult.No)
-           //     {
-           //         factura.eliminarfac();
-
-           //     }
-           //     else if (resultado == DialogResult.Yes)
-           //     {
-           //         factura.facturaguardada(factura.numerofactura);
-
-           //     }
-
-           // }
+           
+            //Verifica si la factura no fue guardada, si la quiere guardar entonces se guarda, si no se limpia
+            p_Factura1.CerrarPrograma();
+            //Aseguramos que la conexion a la bd este cerrada
+            if (facturar.Conectarbd.State == ConnectionState.Open) { 
+            facturar.RollbackTransaccion();
+            }
         }
 
         private void MainView_Load(object sender, EventArgs e)
@@ -78,6 +69,7 @@ namespace CapaPresentacion
 
         private void ventaShow_Click(object sender, EventArgs e)
         {
+            
             this.BackColor = Color.FromArgb(48, 85, 215);
             p_Factura1.Visible = true;
             p_Inventario1.Visible = false;
@@ -85,6 +77,7 @@ namespace CapaPresentacion
 
         private void inventarioShow_Click(object sender, EventArgs e)
         {
+            p_Factura1.LimpiarFactura();
             this.BackColor = SystemColors.ControlDark;
             p_Factura1.Visible = false;
             p_Inventario1.Visible = true;
