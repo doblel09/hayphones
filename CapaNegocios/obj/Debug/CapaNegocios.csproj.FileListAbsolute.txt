@@ -1,0 +1,6 @@
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\bin\Debug\CapaNegocios.dll
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\bin\Debug\CapaNegocios.pdb
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\obj\Debug\CapaNegocios.csproj.AssemblyReference.cache
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\obj\Debug\CapaNegocios.csproj.CoreCompileInputs.cache
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\obj\Debug\CapaNegocios.dll
+C:\Users\Luis\source\repos\HayPhones\HayPhones\CapaNegocios\obj\Debug\CapaNegocios.pdb
