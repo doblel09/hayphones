@@ -57,7 +57,6 @@ namespace CapaPresentacion
             this.label3 = new System.Windows.Forms.Label();
             this.labelCedula = new System.Windows.Forms.Label();
             this.clienteFP = new System.Windows.Forms.TextBox();
-            this.conexion = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cantidadFP)).BeginInit();
@@ -193,7 +192,6 @@ namespace CapaPresentacion
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.conexion);
             this.groupBox1.Controls.Add(this.limpiarBtn);
             this.groupBox1.Controls.Add(this.buscarBtn);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -371,16 +369,6 @@ namespace CapaPresentacion
             this.clienteFP.Size = new System.Drawing.Size(244, 20);
             this.clienteFP.TabIndex = 1;
             // 
-            // conexion
-            // 
-            this.conexion.AutoSize = true;
-            this.conexion.ForeColor = System.Drawing.Color.Lime;
-            this.conexion.Location = new System.Drawing.Point(333, 32);
-            this.conexion.Name = "conexion";
-            this.conexion.Size = new System.Drawing.Size(51, 13);
-            this.conexion.TabIndex = 121;
-            this.conexion.Text = "Conexion";
-            // 
             // P_Factura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -419,7 +407,6 @@ namespace CapaPresentacion
         private System.Windows.Forms.Label fechaLabel;
         private System.Windows.Forms.Button clearPF;
         private System.Windows.Forms.Button imprimirPF;
-        private System.Windows.Forms.TextBox commentPF;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label totalPF;
         private System.Windows.Forms.Label label21;
@@ -440,7 +427,7 @@ namespace CapaPresentacion
         public System.Windows.Forms.TextBox clienteFP;
         private System.Windows.Forms.Button limpiarBtn;
         private System.Windows.Forms.Button buscarBtn;
-        private System.Windows.Forms.Label conexion;
         public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.TextBox commentPF;
     }
 }

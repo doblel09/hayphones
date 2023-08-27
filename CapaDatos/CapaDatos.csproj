@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="D_Factura.cs" />
+    <Compile Include="D_Inventario.cs" />
     <Compile Include="D_Login.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

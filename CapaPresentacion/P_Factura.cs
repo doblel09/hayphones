@@ -24,24 +24,8 @@ namespace CapaPresentacion
 
         public bool guardar;
 
-        private void MostrarConexion()
-        {
-            if (facturar.Conectarbd.State != ConnectionState.Open)
-            {
-                conexion.Text = "Conexion Cerrada.";
-            }
-            else
-            {
-                conexion.Text = "Conexion Abierta.";
-            }
-        }
-
         private D_Factura facturar = new D_Factura();
         public int numeroFactura;
-
-        public bool Guardar { get => Guardar1; set => Guardar1 = value; }
-        public bool Guardar1 { get => guardar; set => guardar = value; }
-
         private void P_Factura_Load(object sender, EventArgs e)
         {
             facturar.IniciarTransaccion();
@@ -50,7 +34,7 @@ namespace CapaPresentacion
             numFacturaBox.Text = Convert.ToString(numeroFactura);
             //Obtiene los datos del inventario y los muestra
             ActualizarInventario();
-            MostrarConexion();
+            fechaLabel1.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
         }
 
@@ -67,9 +51,9 @@ namespace CapaPresentacion
 
         private void addFP_Click(object sender, EventArgs e)
         {
-            Guardar = false;
+            guardar = false;
             facturar.crearFactura(numeroFactura, 1);
-            MostrarConexion();
+            
             int agregar = facturar.AgregarProducto(numeroFactura, Convert.ToInt32(inventarioGridView.CurrentRow.Cells[0].Value), Convert.ToInt32(cantidadFP.Value));
             if (agregar > 0)
             {
@@ -86,17 +70,67 @@ namespace CapaPresentacion
 
         private void buscarBtn_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            if (comboBox1.Text == "" || textBox1.Text == "")
+            {
+                MessageBox.Show("Faltan criterios para su búsqueda.");
+            }
+            else
+            {
+                try
+                {
+                    inventarioGridView.DataSource = facturar.Buscar(comboBox1.Text, textBox1.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
 
         private void limpiarBtn_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            ActualizarInventario();
         }
 
         private void imprimirPF_Click(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea limpiar esta factura??", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (resultado == DialogResult.No)
+            {
+                //No pasa nada
+
+            }
+            else if (resultado == DialogResult.Yes)
+            {
+                string nombrecliente;
+                string comment;
+                if (string.IsNullOrEmpty(clienteFP.Text))
+                {
+                    nombrecliente = "N/A";
+                }
+                else
+                {
+                    nombrecliente = clienteFP.Text;
+                }
+                if (string.IsNullOrEmpty(commentPF.Text))
+                {
+                    comment = "N/A";
+                }
+                else
+                {
+                    comment = clienteFP.Text;
+                }
+                facturar.GuardarFactura(numeroFactura, nombrecliente, comment);
+                dataGridView1.DataSource = null;
+                clienteFP.Clear();
+                commentPF.Clear();
+                facturar.IniciarTransaccion();
+                numeroFactura = facturar.DeterminarFactura();
+                numFacturaBox.Text = Convert.ToString(numeroFactura);
+                ActualizarInventario();
+            }
+            
+            
         }
         public void LimpiarFactura()
         {
@@ -105,7 +139,7 @@ namespace CapaPresentacion
                 guardar = true;
             }
 
-            if (Guardar == false)
+            if (guardar == false)
             {
                 DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea limpiar esta factura??", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.No)
@@ -130,7 +164,7 @@ namespace CapaPresentacion
                 guardar = true;
             }
 
-            if (Guardar == false)
+            if (guardar == false)
             {
                 DialogResult resultado = MessageBox.Show("Esta factura aun no ha sido guardada. Desea guardar esta factura?", "Confirmar acción", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resultado == DialogResult.No)

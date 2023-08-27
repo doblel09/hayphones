@@ -20,10 +20,11 @@ namespace CapaPresentacion
             ActualizarInventario();
         }
         
+        D_Inventario inventario = new D_Inventario();
 
         private void ActualizarInventario()
         {
-            //dataGridView1.DataSource= facturar.ObtenerInventario();
+            dataGridView1.DataSource = inventario.ObtenerInventario();
         }
         private void Limpiar()
         {
@@ -55,55 +56,64 @@ namespace CapaPresentacion
 
         private void button3_Click(object sender, EventArgs e)
         {
-            //try { 
-            //facturar.InventarioAgregar(descProductoBox.Text, Convert.ToInt32(precioBox.Text), Convert.ToInt32(numericUpDown1.Value), IMEIbox.Text);
-            //MessageBox.Show("Producto Agregado.");
-            //ActualizarInventario();
-            //}
-            //catch(Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                inventario.InsertarProducto(descProductoBox.Text, Convert.ToInt32(precioBox.Text), Convert.ToInt32(numericUpDown1.Value), IMEIbox.Text);
+                MessageBox.Show("Producto Agregado.");
+                ActualizarInventario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    facturar.InventarioModificar(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value), descProductoBox.Text, Convert.ToInt32(precioBox.Text), Convert.ToInt32(numericUpDown1.Value), IMEIbox.Text);
-            //    MessageBox.Show("Producto Modificado.");
-            //    ActualizarInventario();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                inventario.EditarProducto(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value), descProductoBox.Text, Convert.ToInt32(precioBox.Text), Convert.ToInt32(numericUpDown1.Value), IMEIbox.Text);
+                MessageBox.Show("Producto Modificado.");
+                ActualizarInventario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    facturar.InventarioEliminar(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
-            //    MessageBox.Show("Producto Eliminado.");
-            //    ActualizarInventario();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            try
+            {
+                inventario.EliminarProducto(Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value));
+                MessageBox.Show("Producto Eliminado.");
+                ActualizarInventario();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void buscarBtn_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            //    dataGridView1.DataSource = facturar.Buscar(comboBox1.Text, textBox1.Text);
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            if (comboBox1.Text == "" || textBox1.Text == "")
+            {
+                MessageBox.Show("Faltan criterios para su búsqueda.");
+            }
+            else
+            {
+                try
+                {
+                    dataGridView1.DataSource = inventario.Buscar(comboBox1.Text, textBox1.Text);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+
         }
 
         private void limpiarBtn_Click(object sender, EventArgs e)

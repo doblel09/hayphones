@@ -173,6 +173,19 @@ namespace CapaDatos
                 throw new Exception("Error al mostrar inventario.", ex);
             }
         }
+
+        public DataTable Buscar(string criterio, string campo)
+        {
+            SqlCommand cmd = new SqlCommand("sp_buscarProducto", Conectarbd, transaction);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@criterio", criterio);
+            cmd.Parameters.AddWithValue("@campo", campo);
+            SqlDataAdapter da = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            return dt;
+        }
+
         public int AgregarProducto(int idFac, int idProd, int cantidad)
         {
             try

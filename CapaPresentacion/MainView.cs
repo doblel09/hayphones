@@ -69,7 +69,9 @@ namespace CapaPresentacion
 
         private void ventaShow_Click(object sender, EventArgs e)
         {
-            
+            p_Factura1.ActualizarInventario();
+            p_Factura1.clienteFP.Clear();
+            p_Factura1.commentPF.Clear();
             this.BackColor = Color.FromArgb(48, 85, 215);
             p_Factura1.Visible = true;
             p_Inventario1.Visible = false;
