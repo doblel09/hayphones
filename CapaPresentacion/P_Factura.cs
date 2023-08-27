@@ -60,6 +60,7 @@ namespace CapaPresentacion
                 MessageBox.Show("Producto Agregado.");
                 ActualizarDetalle(numeroFactura);
                 ActualizarInventario();
+                totalPF.Text = Convert.ToString(facturar.TotalMaster(numeroFactura)) + "$";
             }
             else
             {
@@ -204,6 +205,8 @@ namespace CapaPresentacion
 
             LimpiarFactura();
             MessageBox.Show("Factura eliminada");
+            commentPF.Clear();
+            clienteFP.Clear();
         }
 
 

@@ -103,21 +103,21 @@
             // 
             this.descProductoBox.Location = new System.Drawing.Point(860, 141);
             this.descProductoBox.Name = "descProductoBox";
-            this.descProductoBox.Size = new System.Drawing.Size(100, 20);
+            this.descProductoBox.Size = new System.Drawing.Size(184, 20);
             this.descProductoBox.TabIndex = 5;
             // 
             // precioBox
             // 
             this.precioBox.Location = new System.Drawing.Point(860, 185);
             this.precioBox.Name = "precioBox";
-            this.precioBox.Size = new System.Drawing.Size(100, 20);
+            this.precioBox.Size = new System.Drawing.Size(184, 20);
             this.precioBox.TabIndex = 6;
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Location = new System.Drawing.Point(861, 238);
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDown1.Size = new System.Drawing.Size(183, 20);
             this.numericUpDown1.TabIndex = 7;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -129,14 +129,14 @@
             // 
             this.IMEIbox.Location = new System.Drawing.Point(862, 287);
             this.IMEIbox.Name = "IMEIbox";
-            this.IMEIbox.Size = new System.Drawing.Size(100, 20);
+            this.IMEIbox.Size = new System.Drawing.Size(182, 20);
             this.IMEIbox.TabIndex = 8;
             // 
             // idProductoBox
             // 
             this.idProductoBox.Location = new System.Drawing.Point(860, 102);
             this.idProductoBox.Name = "idProductoBox";
-            this.idProductoBox.Size = new System.Drawing.Size(100, 20);
+            this.idProductoBox.Size = new System.Drawing.Size(184, 20);
             this.idProductoBox.TabIndex = 9;
             // 
             // label1
@@ -155,9 +155,9 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(857, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 13);
+            this.label2.Size = new System.Drawing.Size(70, 13);
             this.label2.TabIndex = 11;
-            this.label2.Text = "Descripcion";
+            this.label2.Text = "Descripcion *";
             // 
             // label3
             // 
@@ -165,9 +165,9 @@
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.Location = new System.Drawing.Point(858, 171);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(37, 13);
+            this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 12;
-            this.label3.Text = "Precio";
+            this.label3.Text = "Precio *";
             // 
             // label4
             // 
@@ -175,9 +175,9 @@
             this.label4.ForeColor = System.Drawing.Color.White;
             this.label4.Location = new System.Drawing.Point(859, 220);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(49, 13);
+            this.label4.Size = new System.Drawing.Size(56, 13);
             this.label4.TabIndex = 13;
-            this.label4.Text = "Cantidad";
+            this.label4.Text = "Cantidad *";
             // 
             // label5
             // 
